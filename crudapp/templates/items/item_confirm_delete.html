@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Item</title>
+
+    <!-- Load Static Files -->
+    {% load static %}
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h2 class="delete-confirmation">Are you sure you want to delete "{{ item.name }}"?</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit" class="btn-delete">Yes, delete</button>
+    </form>
+    <a href="{% url 'item_list' %}" class="back-link">Cancel</a>
+</body>
+</html>
